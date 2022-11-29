@@ -1,5 +1,5 @@
 <?php
-include("conects/conexion.php");
+include("conexion.php");
 $con = conectar();
 
 $idClientes = $_POST['idClientes'];
@@ -8,10 +8,10 @@ $correoCliente = $_POST['correoCliente'];
 $direccionCliente = $_POST['direccionCliente'];
 $teleCliente = $_POST['teleCliente'];
 
-$sql = "INSERT INTO clientes VALUES ('$idClientes','$nombreCliente','$correoCliente','$direccionCliente','$teleCliente')";
+$sql = "UPDATE clientes SET  nombreCliente='$nombreCliente', correoCliente='$correoCliente', direccionCliente='$direccionCliente', teleCliente='$teleCliente' WHERE idClientes='$idClientes'";
+
 $query = mysqli_query($con, $sql);
 
 if ($query) {
   Header("Location: clientes.php");
-} else {
 }
